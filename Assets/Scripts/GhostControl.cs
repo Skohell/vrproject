@@ -42,4 +42,6 @@ public class GhostControl : MonoBehaviour {
         }
         transform.position = position;
 	}
+
+
 }
