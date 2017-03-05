@@ -11,11 +11,11 @@ public class DetectJoints : MonoBehaviour {
     private Body[] bodies;
 
     private float multiplier = 10f;
-
-	// Use this for initialization
-	void Start () {
-		
-        if(BodySrcManager == null)
+    
+    // Use this for initialization
+    void Start () {
+       
+        if (BodySrcManager == null)
         {
             Debug.Log("Ne pas oublier d'assigner l'objet dans Unity avec Body Source Manager");
         }
@@ -29,7 +29,7 @@ public class DetectJoints : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(bodyManager ==  null)
+        /*if(bodyManager ==  null)
         {
             return;
         }
@@ -48,6 +48,36 @@ public class DetectJoints : MonoBehaviour {
                 var pos = body.Joints[TrackedJoint].Position;
                 gameObject.transform.position = new Vector3(multiplier*pos.X,multiplier*pos.Y);
             }
+        }*/
+        /*Vector2 pos = transform.position;
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            pos = new Vector2(pos.x, pos.y + multiplier * Time.deltaTime);
         }
-	}
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            pos = new Vector2(pos.x, pos.y - multiplier * Time.deltaTime);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            pos = new Vector2(pos.x - multiplier * Time.deltaTime, pos.y);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            pos = new Vector2(pos.x + multiplier * Time.deltaTime, pos.y);
+        }
+
+        gameObject.transform.position = pos;*/
+
+
+        float hAxis = Input.GetAxis("Horizontal");
+        float vaxis = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(hAxis, vaxis, 0) * multiplier * Time.deltaTime;
+
+        gameObject.transform.position += movement;
+    }
 }

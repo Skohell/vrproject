@@ -46,9 +46,12 @@ public class Scooby_life : MonoBehaviour {
     void OnCollisionStay2D(Collision2D col)
     {
         Debug.Log("OnCollisionStay");
-        
 
-        StartCoroutine(disableHitbox());
+        if (col.gameObject.name == "Ghost")
+        {
+            StartCoroutine(disableHitbox());
+        }
+
     }
 
     private IEnumerator disableHitbox()
