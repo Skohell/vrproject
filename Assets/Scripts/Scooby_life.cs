@@ -77,7 +77,7 @@ public class Scooby_life : MonoBehaviour {
 
         Physics2D.IgnoreCollision(ghost, scooby);
         GetComponent<SpriteRenderer>().sprite = scooby_blesse;
-        GetComponent<Transform>().localScale.Set(0.17f, 0.17f, 0f); 
+        GetComponent<Transform>().localScale.Set(0.20f, 0.20f, 0f); 
         
 
         yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
