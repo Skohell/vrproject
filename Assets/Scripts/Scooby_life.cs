@@ -56,11 +56,17 @@ public class Scooby_life : MonoBehaviour {
 
     private IEnumerator disableHitbox()
     {
-        Debug.Log("début routine");
-        this.GetComponent<CircleCollider2D>().enabled = false; // ATTENTION
-        yield return new WaitForSeconds(3);
-        this.GetComponent<CircleCollider2D>().enabled = true; // là on peut sortir de l'écran, désactiver la box des fantomes à la place
+        Collider2D ghost = GameObject.Find("Ghost").GetComponent<CircleCollider2D>();
+        Collider2D scooby = GameObject.Find("Scooby").GetComponent<CircleCollider2D>();
 
+        Debug.Log("début routine");
+
+        Physics2D.IgnoreCollision(ghost, scooby);
+
+        yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
+
+        Physics2D.IgnoreCollision(ghost, scooby, false);
+       
         StopCoroutine(disableHitbox());
         Debug.Log("fin routine");
     }
