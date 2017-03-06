@@ -27,13 +27,12 @@ public class Scooby_life : MonoBehaviour {
         if (col.gameObject.name == "Ghost")
         {
             pv--;
-            //vie1.GetComponent<SpriteRenderer>().sprite = ;
             Debug.Log(pv);
         }
      
         if(pv <= 0)
         {
-            Destroy(GameObject.Find("Scooby"));
+            Destroy(GameObject.Find("sprite_scooby"));
             Debug.Log("MORT");
 
         }
@@ -57,11 +56,12 @@ public class Scooby_life : MonoBehaviour {
     private IEnumerator disableHitbox()
     {
         Collider2D ghost = GameObject.Find("Ghost").GetComponent<CircleCollider2D>();
-        Collider2D scooby = GameObject.Find("Scooby").GetComponent<CircleCollider2D>();
+        Collider2D scooby = GameObject.Find("sprite_scooby").GetComponent<CircleCollider2D>();
 
         Debug.Log("début routine");
 
         Physics2D.IgnoreCollision(ghost, scooby);
+        StartCoroutine(flashingDead());
 
         yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
 
@@ -69,5 +69,18 @@ public class Scooby_life : MonoBehaviour {
        
         StopCoroutine(disableHitbox());
         Debug.Log("fin routine");
+    }
+
+    private IEnumerator flashingDead()
+    {
+        Renderer sprite = GameObject.Find("sprite_scooby").GetComponent<Renderer>();
+
+        sprite.enabled = false;
+
+        yield return new WaitForSeconds(0.05F);
+        sprite.enabled = true;
+
+        StopCoroutine(flashingDead());
+
     }
 }
