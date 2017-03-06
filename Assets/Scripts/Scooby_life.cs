@@ -6,9 +6,7 @@ public class Scooby_life : MonoBehaviour {
 
     int pv;
 
-    Sprite vie1;
-    Sprite vie2;
-    Sprite vie3;
+    [SerializeField] Sprite sprite;
 
     // Use this for initialization
     void Start () {
@@ -27,10 +25,24 @@ public class Scooby_life : MonoBehaviour {
         if (col.gameObject.name == "Ghost")
         {
             pv--;
-            //vie1.GetComponent<SpriteRenderer>().sprite = ;
             Debug.Log(pv);
+          
         }
-     
+        
+        switch(pv)
+        {
+            case 0:
+                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = sprite;
+                break;
+            case 1:
+                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = sprite;
+                break;
+            case 2:
+                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = sprite;
+                break;
+            default:
+                break;
+        }
         if(pv <= 0)
         {
             Destroy(GameObject.Find("Scooby"));

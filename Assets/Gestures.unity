@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b4436a0029484749be061cf1f6bb3cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcf4e023a869e8949af203d24842fa06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,8 +149,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 25655081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.25, y: 4.4, z: 0}
-  m_LocalScale: {x: 0.04478479, y: 0.03957637, z: 0.081841126}
+  m_LocalPosition: {x: -8, y: 4, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.19782864}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -281,7 +281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b4436a0029484749be061cf1f6bb3cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcf4e023a869e8949af203d24842fa06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,8 +292,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238566808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.29, y: 4.42, z: 0}
-  m_LocalScale: {x: 0.04478479, y: 0.03957637, z: 0.081841126}
+  m_LocalPosition: {x: -7, y: 4, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.17557745}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -345,7 +345,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b4436a0029484749be061cf1f6bb3cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcf4e023a869e8949af203d24842fa06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -356,8 +356,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314881605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.31, y: 4.42, z: 0}
-  m_LocalScale: {x: 0.04478479, y: 0.03957637, z: 0.081841126}
+  m_LocalPosition: {x: -6, y: 4, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.081841126}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -823,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b947d451e4f7134a8b5cb2736b557e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: fc3e5944a4d9b8845aee84186e2e7741, type: 3}
 --- !u!1 &1825602394
 GameObject:
   m_ObjectHideFlags: 0
