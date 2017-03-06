@@ -6,7 +6,9 @@ public class Scooby_life : MonoBehaviour {
 
     int pv;
 
-    [SerializeField] Sprite sprite;
+    [SerializeField] Sprite coeur_vide;
+    [SerializeField] Sprite scooby_normal;
+    [SerializeField] Sprite scooby_blesse;
 
     // Use this for initialization
     void Start () {
@@ -32,13 +34,13 @@ public class Scooby_life : MonoBehaviour {
         switch(pv)
         {
             case 0:
-                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = sprite;
+                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 break;
             case 1:
-                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = sprite;
+                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 break;
             case 2:
-                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = sprite;
+                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 break;
             default:
                 break;
@@ -74,26 +76,19 @@ public class Scooby_life : MonoBehaviour {
         Debug.Log("début routine");
 
         Physics2D.IgnoreCollision(ghost, scooby);
-        StartCoroutine(flashingDead());
+        GetComponent<SpriteRenderer>().sprite = scooby_blesse;
+        GetComponent<Transform>().localScale.Set(0.17f, 0.17f, 0f); 
+        
 
         yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
 
         Physics2D.IgnoreCollision(ghost, scooby, false);
-       
+        GetComponent<SpriteRenderer>().sprite = scooby_normal;
+
+
         StopCoroutine(disableHitbox());
         Debug.Log("fin routine");
     }
 
-    private IEnumerator flashingDead()
-    {
-        Renderer sprite = GameObject.Find("sprite_scooby").GetComponent<Renderer>();
-
-        sprite.enabled = false;
-
-        yield return new WaitForSeconds(0.05F);
-        sprite.enabled = true;
-
-        StopCoroutine(flashingDead());
-
-    }
+    
 }
