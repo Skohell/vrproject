@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GhostSpawner : MonoBehaviour {
 
-    public GameObject[] ghosts;
-
 	// Use this for initialization
 	void Start () {
         StartCoroutine(spawnGhost());
@@ -14,7 +12,7 @@ public class GhostSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        spawnGhost();
+        
 	}
 
     private IEnumerator spawnGhost()

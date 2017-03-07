@@ -8,8 +8,6 @@ public class GhostControl : MonoBehaviour {
     float speed;
     GameObject scooby;
 
-    
-
 	// Use this for initialization
 	void Start () {
         speed = Random.Range(0.5f, 3);

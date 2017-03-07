@@ -22,6 +22,7 @@ public class DetectJoints : MonoBehaviour {
         else
         {
             bodyManager = BodySrcManager.GetComponent<BodySourceManager>();
+           
         }
 
 
