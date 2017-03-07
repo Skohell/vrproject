@@ -10,10 +10,12 @@ public class Scooby_life : MonoBehaviour {
     [SerializeField] Sprite scooby_normal;
     [SerializeField] Sprite scooby_blesse;
 
+    public AudioSource audiohurt;
+    public AudioSource audioover;
+
     // Use this for initialization
     void Start () {
         pv = 3;
-        
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,7 @@ public class Scooby_life : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         
+
         if (col.gameObject.name == "Ghost")
         {
             pv--;
@@ -47,6 +50,7 @@ public class Scooby_life : MonoBehaviour {
         }
         if(pv <= 0)
         {
+            audioover.Play();
             Destroy(GameObject.Find("sprite_scooby"));
             Debug.Log("MORT");
 
@@ -63,7 +67,10 @@ public class Scooby_life : MonoBehaviour {
 
         if (col.gameObject.name == "Ghost")
         {
+            
+            audiohurt.Play();
             StartCoroutine(disableHitbox());
+            
         }
 
     }
