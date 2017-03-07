@@ -32,7 +32,10 @@ public class Scooby_life : MonoBehaviour {
         {
             pv--;
             Debug.Log(pv);
-          
+
+            audiohurt.Play();
+
+
         }
         if(col.gameObject.name == "Cookie")
         {
@@ -40,8 +43,8 @@ public class Scooby_life : MonoBehaviour {
                 pv++;
             
         }
-        
-        switch(pv)
+
+        switch (pv)
         {
             case 0:
                 GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_vide;
@@ -50,6 +53,7 @@ public class Scooby_life : MonoBehaviour {
                 audioover.Play();
                 Destroy(GameObject.Find("sprite_scooby"));
                 Debug.Log("MORT");
+                
                 break;
             case 1:
                 GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
@@ -69,11 +73,7 @@ public class Scooby_life : MonoBehaviour {
             default:
                 break;
 
-            
-
-
-        
-
+        }
 
     }
     
@@ -83,8 +83,6 @@ public class Scooby_life : MonoBehaviour {
 
         if (col.gameObject.name == "Ghost")
         {
-            
-            audiohurt.Play();
             StartCoroutine(disableHitbox());
             
         }
