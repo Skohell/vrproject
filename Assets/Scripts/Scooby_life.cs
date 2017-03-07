@@ -7,6 +7,7 @@ public class Scooby_life : MonoBehaviour {
     int pv;
 
     [SerializeField] Sprite coeur_vide;
+    [SerializeField] Sprite coeur_plein;
     [SerializeField] Sprite scooby_normal;
     [SerializeField] Sprite scooby_blesse;
 
@@ -30,27 +31,41 @@ public class Scooby_life : MonoBehaviour {
             Debug.Log(pv);
           
         }
+        if(col.gameObject.name == "Cookie")
+        {
+            if (pv < 3)
+                pv++;
+            
+        }
         
         switch(pv)
         {
             case 0:
                 GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                Destroy(GameObject.Find("sprite_scooby"));
+                Debug.Log("MORT");
                 break;
             case 1:
+                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
                 GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 break;
             case 2:
+                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
+                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_plein;
                 GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                break;
+            case 3:
+                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
+                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_plein;
+                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_plein;
                 break;
             default:
                 break;
         }
-        if(pv <= 0)
-        {
-            Destroy(GameObject.Find("sprite_scooby"));
-            Debug.Log("MORT");
-
-        }
+        
 
         
 
