@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 16d8972d57649ec449c9d1fdf4172bb1
+timeCreated: 1489073888
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Scooby Doo
+  fontNames:
+  - Scooby Doo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

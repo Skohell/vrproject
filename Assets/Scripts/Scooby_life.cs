@@ -5,7 +5,7 @@ using UnityEngine;
 public class Scooby_life : MonoBehaviour {
 
     int pv;
-
+    public gameEchap echap;
     [SerializeField] Sprite coeur_vide;
     [SerializeField] Sprite coeur_plein;
     [SerializeField] Sprite scooby_normal;
@@ -21,7 +21,14 @@ public class Scooby_life : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            if (!echap.getQuitMenu())
+
+                echap.ExitPress();
+            else
+                echap.NoPress();
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
