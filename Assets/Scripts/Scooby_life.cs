@@ -60,7 +60,8 @@ public class Scooby_life : MonoBehaviour {
                 audioover.Play();
                 Destroy(GameObject.Find("sprite_scooby"));
                 Debug.Log("MORT");
-                
+                waitEnd();
+
                 break;
             case 1:
                 GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
@@ -118,5 +119,14 @@ public class Scooby_life : MonoBehaviour {
         Debug.Log("fin routine");
     }
 
+    private void waitEnd()
+    {
+        StopAllCoroutines();
+        Debug.Log("enter waitend");
+        echap.YesPress();
+        
+        
+        
+    }
     
 }
