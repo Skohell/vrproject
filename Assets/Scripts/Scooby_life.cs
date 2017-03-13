@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Scooby_life : MonoBehaviour {
@@ -44,10 +45,12 @@ public class Scooby_life : MonoBehaviour {
 
 
         }
-        if(col.gameObject.name == "Cookie")
+        string pattern = @"Cookie\W+";
+        if (Regex.IsMatch(col.gameObject.name, pattern))
         {
             if (pv < 3)
                 pv++;
+            Destroy(col.gameObject);
             
         }
 
@@ -121,7 +124,6 @@ public class Scooby_life : MonoBehaviour {
 
     private void waitEnd()
     {
-        StopAllCoroutines();
         Debug.Log("enter waitend");
         echap.YesPress();
         
