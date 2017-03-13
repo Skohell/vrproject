@@ -39,8 +39,9 @@ public class Scooby_life : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
 
-        string pattern = @"Ghost\W*";
-        if (Regex.IsMatch(col.gameObject.name, pattern))
+        string patternGhost = @"Ghost\W*";
+        string patternCookie = @"Cookie\W*";
+        if (Regex.IsMatch(col.gameObject.name, patternGhost))
         {
             pv--;
             Debug.Log(pv);
@@ -48,11 +49,12 @@ public class Scooby_life : MonoBehaviour {
             audiohurt.Play();
 
         }
-        string pattern = @"Cookie\W+";
-        if (Regex.IsMatch(col.gameObject.name, pattern))
+        
+        if (Regex.IsMatch(col.gameObject.name, patternCookie))
         {
             if (pv < 3)
                 pv++;
+            CookieSpawner.spawnCookie();
             Destroy(col.gameObject);
             
         }

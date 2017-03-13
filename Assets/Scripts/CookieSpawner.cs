@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CookieSpawner : MonoBehaviour {
 
-    public GameObject cookie;
+    private static GameObject cookie;
+    static int k = 0;
     
     // Use this for initialization
     void Start()
     {
-
-        StartCoroutine(spawnCookie());
+        cookie = GameObject.Find("Cookie");
+        firstCookie();
     }
 
     // Update is called once per frame
@@ -18,15 +19,23 @@ public class CookieSpawner : MonoBehaviour {
     {
 
     }
+    private void firstCookie()
+    {
+        if(k == 0)
+        {
+ 
+            Vector2 pos = new Vector2(Random.Range(-8, 8), Random.Range(-4, 4));
+            GameObject clone = Instantiate(cookie, pos, Quaternion.identity);
+            clone.GetComponent<CircleCollider2D>().isTrigger = false;
+            k = 1;
+        }
 
-    private IEnumerator spawnCookie()
+    }
+    public static void spawnCookie()
     {
 
-        yield return new WaitForSeconds(5); 
-        
-        Vector3 scale = GameObject.Find("scooby_bg").transform.localScale;
-        Vector2 pos = new Vector2(Random.Range(1 - scale.x, scale.x - 1), Random.Range(1 - scale.y, scale.y - 1));
-        GameObject clone = Instantiate(GameObject.Find("Cookie"), pos, Quaternion.identity);
-        
+        Vector2 pos = new Vector2(Random.Range(-8,8), Random.Range(-4,4));
+        GameObject clone = Instantiate(cookie, pos, Quaternion.identity);
+        clone.GetComponent<CircleCollider2D>().isTrigger = false;
     }
 }
