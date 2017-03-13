@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuitMenu: {fileID: 322955048}
+  game_over: {fileID: 1733411038}
 --- !u!1 &394621412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1216,7 @@ GameObject:
   - component: {fileID: 1686250746}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,7 +1352,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eb76f4b5d49877f49bbbc2317c89024f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1709,7 +1710,7 @@ GameObject:
   - component: {fileID: 1920702421}
   m_Layer: 0
   m_Name: Cookie
-  m_TagString: Untagged
+  m_TagString: cookie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,7 +2001,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90a05a3da68674446b4a7d02412e484b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

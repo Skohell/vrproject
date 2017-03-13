@@ -8,6 +8,7 @@ public class gameEchap : MonoBehaviour {
 
 
     public Canvas QuitMenu;
+    [SerializeField] AudioSource game_over;
     // Use this for initialization
 
     void Start()
@@ -30,7 +31,10 @@ public class gameEchap : MonoBehaviour {
 
     public void YesPress()
     {
+        game_over.Play();
         SceneManager.LoadScene("SceneMenu");
+        
+
     }
 
     public bool getQuitMenu() { return QuitMenu.enabled; }
