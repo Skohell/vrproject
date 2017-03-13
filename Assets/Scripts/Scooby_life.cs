@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
 using UnityEngine;
 
 public class Scooby_life : MonoBehaviour {
 
     int pv;
+
     public gameEchap echap;
+
     [SerializeField] Sprite coeur_vide;
     [SerializeField] Sprite coeur_plein;
     [SerializeField] Sprite scooby_normal;
@@ -19,6 +22,7 @@ public class Scooby_life : MonoBehaviour {
     void Start () {
         pv = 3;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -34,15 +38,14 @@ public class Scooby_life : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        
 
-        if (col.gameObject.name == "Ghost")
+        string pattern = @"Ghost\W*";
+        if (Regex.IsMatch(col.gameObject.name, pattern))
         {
             pv--;
             Debug.Log(pv);
 
             audiohurt.Play();
-
 
         }
         string pattern = @"Cookie\W+";
@@ -60,7 +63,6 @@ public class Scooby_life : MonoBehaviour {
                 GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
-                audioover.Play();
                 Destroy(GameObject.Find("sprite_scooby"));
                 Debug.Log("MORT");
                 waitEnd();
@@ -90,31 +92,40 @@ public class Scooby_life : MonoBehaviour {
     
     void OnCollisionStay2D(Collision2D col)
     {
-        Debug.Log("OnCollisionStay");
-
-        if (col.gameObject.name == "Ghost")
+        string pattern = @"Ghost\W*";
+        if(Regex.IsMatch(col.gameObject.name, pattern))
         {
             StartCoroutine(disableHitbox());
-            
         }
+        Debug.Log("OnCollisionStay");
 
     }
 
     private IEnumerator disableHitbox()
     {
-        Collider2D ghost = GameObject.Find("Ghost").GetComponent<CircleCollider2D>();
         Collider2D scooby = GameObject.Find("sprite_scooby").GetComponent<CircleCollider2D>();
 
         Debug.Log("début routine");
 
-        Physics2D.IgnoreCollision(ghost, scooby);
+
+        GameObject[] ghosts = GameObject.FindGameObjectsWithTag("ghost");
+        foreach(GameObject g in ghosts)
+        {
+            Collider2D g2 =g.GetComponent<CircleCollider2D>();
+            Physics2D.IgnoreCollision(g2,scooby);
+        }
+
+
         GetComponent<SpriteRenderer>().sprite = scooby_blesse;
         GetComponent<Transform>().localScale.Set(0.20f, 0.20f, 0f); 
         
-
         yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
 
-        Physics2D.IgnoreCollision(ghost, scooby, false);
+        foreach (GameObject g in ghosts)
+        {
+            Collider2D g2 = g.GetComponent<CircleCollider2D>();
+            Physics2D.IgnoreCollision(g2, scooby, false);
+        }
         GetComponent<SpriteRenderer>().sprite = scooby_normal;
 
 
@@ -125,10 +136,7 @@ public class Scooby_life : MonoBehaviour {
     private void waitEnd()
     {
         Debug.Log("enter waitend");
-        echap.YesPress();
-        
-        
-        
+        echap.YesPress();  
     }
     
 }

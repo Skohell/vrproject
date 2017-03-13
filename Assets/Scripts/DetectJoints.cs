@@ -30,7 +30,7 @@ public class DetectJoints : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       /* if(bodyManager ==  null)
+        if(bodyManager ==  null)
         {
             return;
         }
@@ -50,14 +50,14 @@ public class DetectJoints : MonoBehaviour {
                 gameObject.transform.position = new Vector3(multiplier*pos.X,multiplier*pos.Y);
             }
         }
-       */
+       /*
         
         float hAxis = Input.GetAxis("Horizontal");
         float vaxis = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(hAxis, vaxis, 0) * multiplier * Time.deltaTime;
 
-        gameObject.transform.position += movement;
+        gameObject.transform.position += movement;*/
         
     }
 }
