@@ -1314,6 +1314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289cc79a46b90e042b981a236bcc0703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost_follow: {fileID: 21300000, guid: 5eb59710f89471f4b9d1b0de390fafc1, type: 3}
+  ghost_vertical: {fileID: 21300000, guid: 5eb59710f89471f4b9d1b0de390fafc1, type: 3}
+  ghost_horizontal: {fileID: 21300000, guid: 5eb59710f89471f4b9d1b0de390fafc1, type: 3}
 --- !u!114 &1686250746
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,8 +18,7 @@ public class GhostSpawner : MonoBehaviour {
     private IEnumerator spawnGhost()
     {
         yield return new WaitForSeconds (10);
-        Vector3 scale = GameObject.Find("scooby_bg").transform.localScale;
-        Vector2 pos = new Vector2(Random.Range(1-scale.x,scale.x-1),Random.Range(1-scale.y,scale.y-1));
+        Vector2 pos = new Vector2(Random.Range(-8,8),Random.Range(-4,4));
         Instantiate(GameObject.Find("Ghost"),pos,Quaternion.identity);
     }
 }
