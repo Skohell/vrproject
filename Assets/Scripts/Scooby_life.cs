@@ -24,12 +24,14 @@ public class Scooby_life : MonoBehaviour {
     public Text score;
     public AudioSource audiohurt;
     public AudioSource audioover;
-    int pts;
+    public static int pts;
+    public static int best_pts;
 
     // Use this for initialization
     void Start () {
         pv = 3;
         pts = 0;
+        best_pts = 0;
         vie1 = GameObject.Find("vie1").GetComponent<SpriteRenderer>();
         CookieSpawner.spawnCookie();
 
@@ -83,6 +85,8 @@ public class Scooby_life : MonoBehaviour {
                 GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
                 Destroy(GameObject.Find("sprite_scooby"));
+                if(best_pts<pts)
+                    best_pts = pts;
                 Debug.Log("MORT");
                 waitEnd();
 
