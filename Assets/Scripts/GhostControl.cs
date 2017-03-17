@@ -10,7 +10,7 @@ public class GhostControl : MonoBehaviour {
     float type;
     bool goRight;
     bool goUp;
-
+    SpriteRenderer ghost_sprite;
     [SerializeField]Sprite ghost_follow;
     [SerializeField]Sprite ghost_vertical;
     [SerializeField]Sprite ghost_horizontal;
@@ -23,20 +23,22 @@ public class GhostControl : MonoBehaviour {
         type = Random.Range(0f, 1f);
         goRight = true;
         goUp = true;
+        ghost_sprite = GetComponent<SpriteRenderer>();
         if (type < 0.33)
         {
-            this.GetComponent<SpriteRenderer>().sprite = ghost_follow;
+            ghost_sprite.sprite = ghost_follow;
         }
         else if (type > 0.33 && type < 0.66)
         {
-            this.GetComponent<SpriteRenderer>().sprite = ghost_horizontal;
+            ghost_sprite.sprite = ghost_horizontal;
 
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().sprite = ghost_vertical;
+            ghost_sprite.sprite = ghost_vertical;
 
         }
+        
     }
 
     // Update is called once per frame

@@ -30,8 +30,6 @@ public class Scooby_life : MonoBehaviour {
     void Start () {
         pv = 3;
         pts = 0;
-        vie1 = GameObject.Find("vie1").GetComponent<SpriteRenderer>();
-
 
     }
 
@@ -78,28 +76,26 @@ public class Scooby_life : MonoBehaviour {
         switch (pv)
         {
             case 0:
-                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_vide;
-                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
-                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
-                Destroy(GameObject.Find("sprite_scooby"));
+                vie1.sprite = coeur_vide;
+                Destroy(this);
                 Debug.Log("MORT");
                 waitEnd();
 
                 break;
             case 1:
-                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
-                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_vide;
-                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                vie1.sprite = coeur_plein;
+                vie2.sprite = coeur_vide;
+                vie3.sprite = coeur_vide;
                 break;
             case 2:
-                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
-                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_plein;
-                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_vide;
+                vie1.sprite = coeur_plein;
+                vie2.sprite = coeur_plein;
+                vie3.sprite = coeur_vide;
                 break;
             case 3:
-                GameObject.Find("vie1").GetComponent<SpriteRenderer>().sprite = coeur_plein;
-                GameObject.Find("vie2").GetComponent<SpriteRenderer>().sprite = coeur_plein;
-                GameObject.Find("vie3").GetComponent<SpriteRenderer>().sprite = coeur_plein;
+                vie1.sprite = coeur_plein;
+                vie2.sprite = coeur_plein;
+                vie3.sprite = coeur_plein;
                 break;
             default:
                 break;
@@ -115,16 +111,13 @@ public class Scooby_life : MonoBehaviour {
         {
             StartCoroutine(disableHitbox());
         }
-        Debug.Log("OnCollisionStay");
 
     }
 
     private IEnumerator disableHitbox()
     {
-        Collider2D scooby = GameObject.Find("sprite_scooby").GetComponent<CircleCollider2D>();
-
-        Debug.Log("début routine");
-
+        SpriteRenderer scooby_sprite = GetComponent<SpriteRenderer>();
+        Collider2D scooby = GetComponent<CircleCollider2D>();
 
         GameObject[] ghosts = GameObject.FindGameObjectsWithTag("ghost");
         foreach(GameObject g in ghosts)
@@ -134,7 +127,8 @@ public class Scooby_life : MonoBehaviour {
         }
 
 
-        GetComponent<SpriteRenderer>().sprite = scooby_blesse;
+        scooby_sprite.sprite = scooby_blesse;
+
         GetComponent<Transform>().localScale.Set(0.20f, 0.20f, 0f); 
         
         yield return new WaitForSeconds(3); // Réactivation de la hitbox après 3 secondes
@@ -144,16 +138,16 @@ public class Scooby_life : MonoBehaviour {
             Collider2D g2 = g.GetComponent<CircleCollider2D>();
             Physics2D.IgnoreCollision(g2, scooby, false);
         }
-        GetComponent<SpriteRenderer>().sprite = scooby_normal;
+        scooby_sprite.sprite = scooby_normal;
 
 
         StopCoroutine(disableHitbox());
-        Debug.Log("fin routine");
+
     }
 
     private void waitEnd()
     {
-        Debug.Log("enter waitend");
+        StopAllCoroutines();
         echap.YesPress();  
     }
     

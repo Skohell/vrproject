@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GhostSpawner : MonoBehaviour {
 
+    public GameObject ghost;
 	// Use this for initialization
 	void Start () {
         StartCoroutine(spawnGhost());
@@ -19,6 +20,6 @@ public class GhostSpawner : MonoBehaviour {
     {
         yield return new WaitForSeconds (10);
         Vector2 pos = new Vector2(Random.Range(-8,8),Random.Range(-4,4));
-        Instantiate(GameObject.Find("Ghost"),pos,Quaternion.identity);
+        Instantiate(ghost,pos,Quaternion.identity);
     }
 }
