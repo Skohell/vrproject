@@ -16,6 +16,7 @@ public class Scooby_life : MonoBehaviour {
     [SerializeField] Sprite scooby_normal;
     [SerializeField] Sprite scooby_blesse;
 
+    public Text score;
     public AudioSource audiohurt;
     public AudioSource audioover;
     int pts;
@@ -24,7 +25,6 @@ public class Scooby_life : MonoBehaviour {
     void Start () {
         pv = 3;
         pts = 0;
-        GameObject.Find("Score").GetComponent<Text>().text = "MILLE";
 	}
 
 	
@@ -56,9 +56,12 @@ public class Scooby_life : MonoBehaviour {
         
         if (Regex.IsMatch(col.gameObject.name, patternCookie))
         {
-            if (pv < 3)
-                pts++;
+            pts++;
+            if (pv < 3 && pts%10 == 0)
+                pv++;
 
+            
+            score.text = pts.ToString();
             CookieSpawner.spawnCookie();
             Destroy(col.gameObject);
             
