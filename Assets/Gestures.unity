@@ -1476,6 +1476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d4a30174913ce4e9f3ba02b6def430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 1686250740}
 --- !u!1 &1733411037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,9 +1703,9 @@ MonoBehaviour:
   coeur_plein: {fileID: 21300000, guid: bcf4e023a869e8949af203d24842fa06, type: 3}
   scooby_normal: {fileID: 21300000, guid: 4d1c1fac3aadcde4eadf8b93c3c2cc38, type: 3}
   scooby_blesse: {fileID: 21300000, guid: a6d507d0c3feede4abd2dd96af9babe0, type: 3}
-  vie1: {fileID: 0}
-  vie2: {fileID: 0}
-  vie3: {fileID: 0}
+  vie1: {fileID: 25655082}
+  vie2: {fileID: 238566809}
+  vie3: {fileID: 314881606}
   score: {fileID: 517174198}
   audiohurt: {fileID: 2089222766}
   audioover: {fileID: 1733411038}
