@@ -78,7 +78,6 @@ public class Scooby_life : MonoBehaviour {
             case 0:
                 vie1.sprite = coeur_vide;
                 Destroy(this);
-                Debug.Log("MORT");
                 waitEnd();
 
                 break;
