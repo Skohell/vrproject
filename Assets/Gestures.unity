@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -817,8 +817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.1, y: 119}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -97.5, y: 233}
+  m_SizeDelta: {x: 195, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517174198
 MonoBehaviour:
@@ -841,10 +841,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 16d8972d57649ec449c9d1fdf4172bb1, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -852,7 +852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1000
+  m_Text: 0
 --- !u!222 &517174199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -891,8 +891,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -78.9, y: 120}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -225, y: 233}
+  m_SizeDelta: {x: 181, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562875850
 MonoBehaviour:
@@ -915,10 +915,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 16d8972d57649ec449c9d1fdf4172bb1, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1702,6 +1702,10 @@ MonoBehaviour:
   coeur_plein: {fileID: 21300000, guid: bcf4e023a869e8949af203d24842fa06, type: 3}
   scooby_normal: {fileID: 21300000, guid: 4d1c1fac3aadcde4eadf8b93c3c2cc38, type: 3}
   scooby_blesse: {fileID: 21300000, guid: a6d507d0c3feede4abd2dd96af9babe0, type: 3}
+  vie1: {fileID: 0}
+  vie2: {fileID: 0}
+  vie3: {fileID: 0}
+  score: {fileID: 517174198}
   audiohurt: {fileID: 2089222766}
   audioover: {fileID: 1733411038}
 --- !u!1 &1756544414
@@ -1749,11 +1753,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1768,7 +1772,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1969408451}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

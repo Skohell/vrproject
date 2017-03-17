@@ -16,6 +16,11 @@ public class Scooby_life : MonoBehaviour {
     [SerializeField] Sprite scooby_normal;
     [SerializeField] Sprite scooby_blesse;
 
+    public SpriteRenderer vie1;
+    public SpriteRenderer vie2;
+    public SpriteRenderer vie3;
+        
+
     public Text score;
     public AudioSource audiohurt;
     public AudioSource audioover;
@@ -25,7 +30,10 @@ public class Scooby_life : MonoBehaviour {
     void Start () {
         pv = 3;
         pts = 0;
-	}
+        vie1 = GameObject.Find("vie1").GetComponent<SpriteRenderer>();
+
+
+    }
 
 	
 	// Update is called once per frame
