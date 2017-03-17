@@ -10,8 +10,7 @@ public class CookieSpawner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        cookie = GameObject.Find("Cookie");
-        firstCookie();
+        
     }
 
     // Update is called once per frame
@@ -19,21 +18,10 @@ public class CookieSpawner : MonoBehaviour {
     {
 
     }
-    private void firstCookie()
-    {
-        if(k == 0)
-        {
- 
-            Vector2 pos = new Vector2(Random.Range(-8, 8), Random.Range(-4, 4));
-            GameObject clone = Instantiate(cookie, pos, Quaternion.identity);
-            clone.GetComponent<CircleCollider2D>().isTrigger = false;
-            k = 1;
-        }
-
-    }
     public static void spawnCookie()
     {
 
+        cookie = GameObject.Find("Cookie");
         Vector2 pos = new Vector2(Random.Range(-8,8), Random.Range(-4,4));
         GameObject clone = Instantiate(cookie, pos, Quaternion.identity);
         clone.GetComponent<CircleCollider2D>().isTrigger = false;

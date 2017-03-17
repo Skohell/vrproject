@@ -31,6 +31,7 @@ public class Scooby_life : MonoBehaviour {
         pv = 3;
         pts = 0;
         vie1 = GameObject.Find("vie1").GetComponent<SpriteRenderer>();
+        CookieSpawner.spawnCookie();
 
 
     }
