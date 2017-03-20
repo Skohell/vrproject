@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using UnityEngine;
@@ -31,7 +32,10 @@ public class Scooby_life : MonoBehaviour {
     void Start () {
         pv = 3;
         pts = 0;
-        best_pts = 0;
+        using (BinaryReader reader = new BinaryReader(File.Open("scores.bin", FileMode.Open)))
+        {
+            best_pts = reader.ReadInt16();
+        }
         CookieSpawner.spawnCookie();
 
 
@@ -154,6 +158,11 @@ public class Scooby_life : MonoBehaviour {
 
     private void waitEnd()
     {
+        using (BinaryWriter writer = new BinaryWriter(File.Open("scores.bin", FileMode.OpenOrCreate)))
+        {
+            writer.Write(best_pts);
+        }
+
         StopAllCoroutines();
         echap.YesPress();  
     }
