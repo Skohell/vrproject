@@ -21,6 +21,8 @@ public class MainMenuScore : MonoBehaviour {
                 bestScore.text = "Best Score : " + reader.ReadInt16().ToString();
             }
         }
+
+
     }
 	// Update is called once per frame
 	void Update () {
