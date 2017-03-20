@@ -51,14 +51,21 @@ public class DetectJoints : MonoBehaviour {
                 var pos = body.Joints[TrackedJoint].Position;
                 gameObject.transform.position = new Vector3(multiplier*pos.X,multiplier*pos.Y);
             }
-        }
+    }
            /*   
+=======
+        } 
+        /*      
+>>>>>>> 9556cd6cb156b1a45c307f69762677fe43bcf54d
         float hAxis = Input.GetAxis("Horizontal");
         float vaxis = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(hAxis, vaxis, 0) * multiplier * Time.deltaTime;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 9556cd6cb156b1a45c307f69762677fe43bcf54d
         gameObject.transform.position += movement;
         */
-    }
 }

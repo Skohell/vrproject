@@ -24,12 +24,17 @@ public class Scooby_life : MonoBehaviour {
     public Text score;
     public AudioSource audiohurt;
     public AudioSource audioover;
-    int pts;
+    public static int pts;
+    public static int best_pts;
 
     // Use this for initialization
     void Start () {
         pv = 3;
         pts = 0;
+        best_pts = 0;
+        CookieSpawner.spawnCookie();
+
+
 
     }
 
@@ -76,6 +81,9 @@ public class Scooby_life : MonoBehaviour {
         switch (pv)
         {
             case 0:
+
+                if(best_pts<pts)
+                    best_pts = pts;
                 vie1.sprite = coeur_vide;
                 Destroy(this);
                 waitEnd();
