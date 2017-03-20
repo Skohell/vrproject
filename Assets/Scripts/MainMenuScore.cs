@@ -29,6 +29,7 @@ public class MainMenuScore : MonoBehaviour {
         {
             MenuBest.enabled = true;
         }
+
     }
 	// Update is called once per frame
 	void Update () {

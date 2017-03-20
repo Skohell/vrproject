@@ -166,5 +166,10 @@ public class Scooby_life : MonoBehaviour {
         StopAllCoroutines();
         echap.YesPress();  
     }
+
+    public static void OnHealRequest()
+    {
+        // CODER CA LA PROCHAINE FOIS
+    }
     
 }

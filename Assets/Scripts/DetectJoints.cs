@@ -6,11 +6,14 @@ using Windows.Kinect;
 public class DetectJoints : MonoBehaviour {
 
     public GameObject BodySrcManager;
-    public JointType TrackedJoint;
+    public JointType RightHand;
+    public JointType LeftHand;
+    public JointType LeftElbow;
     private BodySourceManager bodyManager;
     private Body[] bodies;
 
     private int bodyIndex;
+
 
 
     private bool bodyTracked = false;
@@ -48,8 +51,12 @@ public class DetectJoints : MonoBehaviour {
         var body = this.bodies[0];
             if (body.IsTracked)
             {
-                var pos = body.Joints[TrackedJoint].Position;
+                var pos = body.Joints[RightHand].Position;
                 gameObject.transform.position = new Vector3(multiplier*pos.X,multiplier*pos.Y);
+                if(body.Joints[LeftHand].Position.Y > body.Joints[LeftElbow].Position.Y )
+                {
+                    Scooby_life.OnHealRequest();
+                }
             }
     }
            /*   
