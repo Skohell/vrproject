@@ -1001,7 +1001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BodySrcManager: {fileID: 1008951990}
-  TrackedJoint: 11
+  RightHand: 11
+  LeftHand: 7
+  LeftElbow: 5
 --- !u!4 &1293775944
 Transform:
   m_ObjectHideFlags: 0

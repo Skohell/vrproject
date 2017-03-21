@@ -55,7 +55,7 @@ public class DetectJoints : MonoBehaviour {
                 gameObject.transform.position = new Vector3(multiplier*pos.X,multiplier*pos.Y);
                 if(body.Joints[LeftHand].Position.Y > body.Joints[LeftElbow].Position.Y )
                 {
-                    Scooby_life.OnHealRequest();
+                    Debug.Log("OnHealRequest()");
                 }
             }
     }
