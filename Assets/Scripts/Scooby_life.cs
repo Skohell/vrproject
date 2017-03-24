@@ -157,12 +157,13 @@ public class Scooby_life : MonoBehaviour {
     }
 
     private void waitEnd()
-    {
+    {   
+        
         using (BinaryWriter writer = new BinaryWriter(File.Open("scores.bin", FileMode.OpenOrCreate)))
         {
             writer.Write(best_pts);
         }
-
+        
         StopAllCoroutines();
         echap.YesPress();  
     }
